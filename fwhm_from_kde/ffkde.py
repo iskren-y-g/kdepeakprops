@@ -66,8 +66,9 @@ def fwhm_from_kde(x, nbins = 60, n_samples = 1000, show = False):
 
     print('{:.3f} +{:.3f}, -{:.3f}'.format(kde_peak,hwhm_peak_kde_upp-kde_peak,
                                            kde_peak-hwhm_peak_kde_low))
-    dim_par_lab = r'X = {:.3f} $^{{+{:.3f}}}_{{-{:.3f}}}$'.format(
-        kde_peak,hwhm_peak_kde_upp-kde_peak,kde_peak-abs(hwhm_peak_kde_low))
+    dim_par_lab = r'X = {:.3f} $^{{+{:.3f}}}_{{-{:.3f}}}$, FWHM={:.3f}'.format(
+        kde_peak, hwhm_peak_kde_upp-kde_peak, kde_peak-abs(hwhm_peak_kde_low), 
+        fwhm_peak_kde)
 
     if show:
         fig,ax = plt.subplots()
@@ -78,7 +79,7 @@ def fwhm_from_kde(x, nbins = 60, n_samples = 1000, show = False):
         ax.hlines(kde_y_halfmax, hwhm_peak_kde_low, 
                   hwhm_peak_kde_upp, color='C1')
         ax.plot(kde_xy[0], kde_xy[1], '-', color='C0')
-        ax.text(ax.get_ylim()[0],
+        ax.text(ax.get_xlim()[0],
                 ax.get_ylim()[1]*1.1, '{:s}'.format(dim_par_lab), color='C0')
         ax.set_xlabel('X')
         ax.set_ylabel('N')
