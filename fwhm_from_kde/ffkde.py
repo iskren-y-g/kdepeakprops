@@ -33,7 +33,7 @@ def fwhm_from_kde(x, nbins = 60, n_samples = 1000, show = False):
     #nbins = 60 #len(X)
     kde_bin = (np.nanmax(X)-np.nanmin(X))/nbins
 
-    print('KDE estimation with kde kernel = {:.3f}'.format(kde_bin))
+    print('KDE estimation with Gaussian kernel width = {:.3f}'.format(kde_bin))
     kde = KernelDensity(kernel='gaussian', bandwidth=kde_bin).fit(X)
 
     #print('KDE scores')
@@ -78,7 +78,7 @@ def fwhm_from_kde(x, nbins = 60, n_samples = 1000, show = False):
         ax.hlines(kde_y_halfmax, hwhm_peak_kde_low, 
                   hwhm_peak_kde_upp, color='C1')
         ax.plot(kde_xy[0], kde_xy[1], '-', color='C0')
-        ax.text(kde_peak,
+        ax.text(ax.get_ylim()[0],
                 ax.get_ylim()[1]*1.1, '{:s}'.format(dim_par_lab), color='C0')
         ax.set_xlabel('X')
         ax.set_ylabel('N')
