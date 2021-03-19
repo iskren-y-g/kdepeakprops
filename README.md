@@ -29,7 +29,7 @@ _ = ax.hist(x, bins=60)
 
 
     
-![png](.docs/output_3_1.png)
+![png](docs/output_3_1.png)
     
 
 
@@ -48,7 +48,7 @@ _,_,_,_,_ = ffkde.fwhm_from_kde(x, show=True)
 
 
     
-![png](.docs/output_5_1.png)
+![png](docs/output_5_1.png)
     
 
 
@@ -89,7 +89,7 @@ ax.set_ylabel('N')
 
 
     
-![png](.docs/output_7_2.png)
+![png](docs/output_7_2.png)
     
 
 
@@ -133,7 +133,7 @@ _ = plt.hist(x[x<6000],bins=100)
 
 
     
-![png](.docs/output_15_0.png)
+![png](docs/output_15_0.png)
     
 
 
@@ -152,7 +152,7 @@ _,_,_,_,_ = ffkde.fwhm_from_kde(x[x<6000], nbins=100, show=True)
 
 
     
-![png](.docs/output_17_1.png)
+![png](docs/output_17_1.png)
     
 
 
