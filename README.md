@@ -1,16 +1,23 @@
-# FWHM from KDE peak
+# KDE peak properties (kdepeakprops)
+---------
+Estimation of KDE peak properties: FWHM and its upper and lower bounds.
 
-A quick estimate of the upper/lower bounds and FWHM of a KDE peak
+It takes a 1D array of values and returns two arrays. One (1D array) with the KDE peak properties (value,<br>FWHM, upp, low) and another (2D array) with the KDE samples.
+
+--------
+## Example:
+
+Some imports first:
 
 
 ```python
 import numpy as np
 from matplotlib import pyplot as plt
 
-import fwhm_from_kde as ffkde
+import kdepeakprops as kpp
 ```
 
-# Generate some test data and plot it
+## Generate some test data and plot it
 
 
 ```python
@@ -33,13 +40,14 @@ _ = ax.hist(x, bins=60)
     
 
 
-# Calculate the FWHM of the KDE peak
+--------
+## Calculate the FWHM of the KDE peak
 
-## Use the auto plotting feature
+### Use the auto plotting feature
 
 
 ```python
-_,_,_,_,_ = ffkde.fwhm_from_kde(x, show=True)
+kde_peak_prop,kde_xy = kpp.kde_props(x, show=True)
 ```
 
     KDE estimation with Gaussian kernel width = 15.919
@@ -52,14 +60,16 @@ _,_,_,_,_ = ffkde.fwhm_from_kde(x, show=True)
     
 
 
-# Plot the result manually
+-------
+### Plot the result manually
 
 
 ```python
-peak, fwhm, hwhm_upp, hwhm_low, kde_xy = ffkde.fwhm_from_kde(x, show=False)
+kde_peak_prop,kde_xy = kpp.kde_props(x, show=False)
+peak, fwhm, hwhm_upp, hwhm_low = kde_peak_prop
 
-label = r'X = {:.3f} $^{{+{:.3f}}}_{{-{:.3f}}}$'.format(
-    peak,hwhm_upp-peak,peak-hwhm_low)
+label = r'X = {:.3f} $^{{+{:.3f}}}_{{-{:.3f}}}$, FWHM={:.3f}'.format(
+    peak,hwhm_upp-peak,peak-hwhm_low, fwhm)
 
 fig,ax = plt.subplots()
 _ = ax.hist(x, bins=60, color='grey', alpha =.5)
@@ -95,20 +105,20 @@ ax.set_ylabel('N')
 
 ---------
 
-# Use some other test data
+## Use some other test data
 
 Load test data
 
 
 ```python
 import pickle
-filename = 'test/data/N_tot_MC_smaple_OMP_R.pickle'
+#filename = 'test/data/N_tot_MC_smaple_OMP_R.pickle'
 filename = 'test/data/N_tot_MC_smaple_All.pickle'
 with open(filename, 'rb') as f:
     x = pickle.load(f)
 ```
 
-Print basic stats
+Print basic stats of the test data
 
 
 ```python
@@ -141,8 +151,7 @@ Analyse it with fwhm_from_kde
 
 
 ```python
-
-_,_,_,_,_ = ffkde.fwhm_from_kde(x[x<6000], nbins=100, show=True)
+_,_ = kpp.kde_props(x[x<6000], nbins=100, show=True)
 
 ```
 
