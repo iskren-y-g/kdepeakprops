@@ -43,14 +43,16 @@
             
   <div class="section" id="welcome-to-kdepeakprops-s-documentation">
 <h1>Welcome to kdepeakprops’s documentation!<a class="headerlink" href="#welcome-to-kdepeakprops-s-documentation" title="Permalink to this headline">¶</a></h1>
-</div>
 <div class="section" id="brief-description">
-<h1>Brief description<a class="headerlink" href="#brief-description" title="Permalink to this headline">¶</a></h1>
-<p>Estimation of KDE peak properties: FWHM and its upper and lower bounds.</p>
-<p>It takes a 1D array of values and returns two arrays. One (1D array)
-with the KDE peak properties (value,FWHM, upp, low) and another (2D
+<h2>Brief description<a class="headerlink" href="#brief-description" title="Permalink to this headline">¶</a></h2>
+<p>A module to get some basic properties of a KDE peak: peak location, FWHM
+and its upper and lower bounds. The KDE is estimated with
+sklearn.neighbors.KernelDensity.</p>
+<p><code class="docutils literal notranslate"><span class="pre">kdepeakprops.kde_props</span></code> takes a 1D array of values and returns an array
+with the KDE peak properties (value, FWHM, upp, low) and another (2D
 array) with the KDE samples.</p>
 <img alt="_images/output_5_1.png" src="_images/output_5_1.png" />
+</div>
 </div>
 <div class="section" id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
@@ -122,8 +124,10 @@ rice, sturges, sqrt.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to kdepeakprops’s documentation!</a></li>
+<li><a class="reference internal" href="#">Welcome to kdepeakprops’s documentation!</a><ul>
 <li><a class="reference internal" href="#brief-description">Brief description</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#module-kdepeakprops.kdepeakprops">API main</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
