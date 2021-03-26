@@ -30,17 +30,10 @@ Generate some test data and plot it
 np.random.seed(42)
 x = np.append(np.random.normal(1900, 100, size=10000),
               np.random.normal(2120, 100, size=5000))
-print(x.shape)
 
 fig,ax = plt.subplots()
-
 _ = ax.hist(x, bins=60)
 ```
-
-    (15000,)
-
-
-
     
 ![png](docs/output_3_1.png)
     
