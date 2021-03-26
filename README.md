@@ -10,6 +10,7 @@ It takes a 1D array of values and returns two arrays. One (1D array) with the KD
 ![png](docs/output_5_1.png)
 
 --------
+
 ## Example:
 
 Some imports first:
@@ -22,7 +23,7 @@ from matplotlib import pyplot as plt
 import kdepeakprops as kpp
 ```
 
-## Generate some test data and plot it
+Generate some test data and plot it
 
 
 ```python
