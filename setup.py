@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# Licensed under a 3-clause BSD style license - see LICENSE.rst
+
 from setuptools import setup
 
 setup(name='kdepeakprops',
@@ -5,7 +8,6 @@ setup(name='kdepeakprops',
       description='KDE peak properties (kdepeakprops)',
       url='https://github.com/iskren-y-g/kdepeakprops',
       author='Iskren Y. georgiev',
-      author_email='iskren.y.g@gmail.com',
       license='BSD 3-clause license',
       packages=['kdepeakprops'],
       zip_safe=False)
