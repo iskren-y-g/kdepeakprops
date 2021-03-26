@@ -12,6 +12,16 @@ with the KDE samples.
 ![png](docs/output_5_1.png)
 
 --------
+## Install
+<code>
+cd /path/to/install/dir
+git clone https://github.com/iskren-y-g/kdepeakprops.git</code><br>
+Add path or<br>
+<code>
+> import sys
+> sys.path.insert(0,'/path/to/install/dir')</code>
+
+--------
 ## Example:
 
 Some imports first:

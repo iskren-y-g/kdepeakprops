@@ -28,6 +28,21 @@ Contents
    
    example.rst
 
+Install
+===================
+
+``cd /path/to/install/dir``
+
+``git clone https://github.com/iskren-y-g/kdepeakprops.git``
+    
+Add path or
+
+.. code:: ipython3
+
+    import sys
+    sys.path.insert(0,'/path/to/install/dir')</code>
+
+
 API main
 ===================
 .. automodule:: kdepeakprops.kdepeakprops
