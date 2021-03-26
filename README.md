@@ -38,7 +38,7 @@ _ = ax.hist(x, bins=60)
 
 
     
-![png](output_3_0.png)
+![png](docs/output_3_0.png)
     
 
 
@@ -58,7 +58,7 @@ kde_peak_prop,kde_xy = kpp.kde_props(x, nbins=60, show=True)
 
 
     
-![png](output_5_1.png)
+![png](docs/output_5_1.png)
     
 
 
@@ -101,7 +101,7 @@ ax.set_ylabel('N')
 
 
     
-![png](output_7_2.png)
+![png](docs/output_7_2.png)
     
 
 
@@ -134,7 +134,7 @@ _,_ = kpp.kde_props(x, show=True)
 
 
     
-![png](output_13_1.png)
+![png](docs/output_13_1.png)
     
 
 
@@ -170,7 +170,7 @@ _ = plt.hist(x[x<6000],bins=100)
 
 
     
-![png](output_18_0.png)
+![png](docs/output_18_0.png)
     
 
 
@@ -188,7 +188,7 @@ _,_ = kpp.kde_props(x[x<6000], nbins=100, show=True)
 
 
     
-![png](output_20_1.png)
+![png](docs/output_20_1.png)
     
 
 
