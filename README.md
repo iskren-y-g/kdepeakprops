@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/kdepeakprops/badge/?version=latest)](https://kdepeakprops.readthedocs.io/en/latest/?badge=latest)
+
 # KDE peak properties (kdepeakprops)
 ---------
 ## Brief description
