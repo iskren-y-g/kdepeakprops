@@ -16,7 +16,8 @@
     <script src="_static/language_data.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="example.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -24,6 +25,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="example.html" title="Examples"
+             accesskey="N">next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">kdepeakprops  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to kdepeakprops’s documentation!</a></li> 
       </ul>
@@ -36,8 +43,67 @@
             
   <div class="section" id="welcome-to-kdepeakprops-s-documentation">
 <h1>Welcome to kdepeakprops’s documentation!<a class="headerlink" href="#welcome-to-kdepeakprops-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
 </div>
+<div class="section" id="basic-info">
+<h1>Basic info<a class="headerlink" href="#basic-info" title="Permalink to this headline">¶</a></h1>
+<p>Estimation of KDE peak properties: FWHM and its upper and lower bounds.</p>
+<p>It takes a 1D array of values and returns two arrays. One (1D array)
+with the KDE peak properties (value,FWHM, upp, low) and another (2D
+array) with the KDE samples.</p>
+<img alt="_images/output_5_1.png" src="_images/output_5_1.png" />
+</div>
+<div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">doc</dt>
+<dd class="field-odd"><p>Examples &lt;example.rst&gt;</p>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html#calculate-the-fwhm-of-the-kde-peak">Calculate the FWHM of the KDE peak</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="example.html#use-the-auto-plotting-feature">Use the auto plotting feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example.html#plot-the-result-manually">Plot the result manually</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html#an-example-with-another-test-data">An example with another test data</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-kdepeakprops.kdepeakprops">
+<span id="api-main"></span><h1>API main<a class="headerlink" href="#module-kdepeakprops.kdepeakprops" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="kdepeakprops.kdepeakprops.kde_props">
+<code class="sig-prename descclassname">kdepeakprops.kdepeakprops.</code><code class="sig-name descname">kde_props</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">nbins</span><span class="o">=</span><span class="default_value">'doane'</span></em>, <em class="sig-param"><span class="n">n_samples</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kdepeakprops/kdepeakprops.html#kde_props"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kdepeakprops.kdepeakprops.kde_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimation of KDE peak properties: FWHM and its upper and lower
+bounds. It uses the scikit-learn KDE estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – The 1D data array.</p></li>
+<li><p><strong>nbins</strong> (<em>int</em><em> or </em><em>str</em><em>, </em><em>default: 'doane'</em>) – <p>Number of bins to generate histogram and scale the KDE cernel.
+If a str, it must be one of the numpy.histogram_bin_edges bin
+calculation algorithms: auto, fd, doane, scott, stone,
+rice, sturges, sqrt.</p>
+<p>Details in numpy.histogram_bin_edges:
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html">https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html</a>.</p>
+</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em><em>, </em><em>default: 1000</em>) – Number of samples for the KDE</p></li>
+<li><p><strong>show</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Plot the result</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>kde_peak_prop</strong> (<em>1D array</em>) – The properties of the KDE peak value, FWHM, upper and lower bounds.</p></li>
+<li><p><strong>kde_xy</strong> (<em>2D array</em>) – The KDE samples for manual plotting.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -58,9 +124,15 @@
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Welcome to kdepeakprops’s documentation!</a></li>
+<li><a class="reference internal" href="#basic-info">Basic info</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#module-kdepeakprops.kdepeakprops">API main</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
+  <h4>Next topic</h4>
+  <p class="topless"><a href="example.html"
+                        title="next chapter">Examples</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -88,6 +160,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="example.html" title="Examples"
+             >next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">kdepeakprops  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to kdepeakprops’s documentation!</a></li> 
       </ul>

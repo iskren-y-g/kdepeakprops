@@ -1,5 +1,15 @@
 # KDE peak properties (kdepeakprops)
 ---------
+## Brief description
+---------
+Estimation of KDE peak properties: FWHM and its upper and lower bounds.
+
+It takes a 1D array of values and returns two arrays. One (1D array)
+with the KDE peak properties (value,FWHM, upp, low) and another (2D
+array) with the KDE samples.
+
+![png] (docs/output_5_1.png)
+
 Estimation of KDE peak properties: FWHM and its upper and lower bounds.
 
 It takes a 1D array of values and returns two arrays. One (1D array) with the KDE peak properties (value,<br>FWHM, upp, low) and another (2D array) with the KDE samples.

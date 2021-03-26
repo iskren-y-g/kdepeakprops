@@ -6,11 +6,31 @@
 Welcome to kdepeakprops's documentation!
 ==============================================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+Basic info
+===================
+Estimation of KDE peak properties: FWHM and its upper and lower bounds.
 
-    example.rst
+It takes a 1D array of values and returns two arrays. One (1D array)
+with the KDE peak properties (value,FWHM, upp, low) and another (2D
+array) with the KDE samples.
+
+.. image:: output_5_1.png
+
+Examples
+===================
+
+:doc: Examples <example.rst>
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Contents:
+   
+   example.rst
+
+API main
+===================
+.. automodule:: kdepeakprops.kdepeakprops
+   :members:    
 
 Indices and tables
 ==================

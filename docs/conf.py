@@ -12,8 +12,9 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('../kdepeakprops'))
+sys.path.insert(0, os.path.abspath('./'))
+sys.path.insert(0, os.path.abspath('../kdepeakprops/'))
+sys.path.insert(0, os.path.abspath('../../fwhm_from_kde/'))
 
 # -- Project information -----------------------------------------------------
 
@@ -67,3 +68,5 @@ html_theme = 'classic' #bootstrap-astropy' #nature' #alabaster'
 
 
 # -- Extension configuration -------------------------------------------------
+
+numpydoc_show_class_members = False

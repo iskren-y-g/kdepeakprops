@@ -1,16 +1,5 @@
-# KDE peak properties (kdepeakprops)
+Examples
 ------------------------------------
-
-Estimation of KDE peak properties: FWHM and its upper and lower bounds.
-
-It takes a 1D array of values and returns two arrays. One (1D array)
-with the KDE peak properties (value,FWHM, upp, low) and another (2D
-array) with the KDE samples.
-
---------------
-
-Example:
---------
 
 Some imports first:
 
@@ -21,8 +10,10 @@ Some imports first:
     
     import kdepeakprops as kpp
 
+Calculate the FWHM of the KDE peak
+----------------------------------
+
 Generate some test data and plot it
------------------------------------
 
 .. code:: ipython3
 
@@ -47,15 +38,12 @@ Generate some test data and plot it
 
 --------------
 
-Calculate the FWHM of the KDE peak
-----------------------------------
-
 Use the auto plotting feature
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
-    kde_peak_prop,kde_xy = kpp.kde_props(x, show=True)
+    kde_peak_prop,kde_xy = kpp.kde_props(x, nbins=60, show=True)
 
 
 .. parsed-literal::
@@ -75,7 +63,7 @@ Plot the result manually
 
 .. code:: ipython3
 
-    kde_peak_prop,kde_xy = kpp.kde_props(x, show=False)
+    kde_peak_prop,kde_xy = kpp.kde_props(x, nbins=60, show=False)
     peak, fwhm, hwhm_upp, hwhm_low = kde_peak_prop
     
     label = r'X = {:.3f} $^{{+{:.3f}}}_{{-{:.3f}}}$, FWHM={:.3f}'.format(
@@ -116,20 +104,42 @@ Plot the result manually
 
 --------------
 
-Use some other test data
-------------------------
+An example with another test data
+---------------------------------
 
-Load test data
+Load test data as numpy array
 
 .. code:: ipython3
 
     import pickle
-    #filename = 'test/data/N_tot_MC_smaple_OMP_R.pickle'
-    filename = 'test/data/N_tot_MC_smaple_All.pickle'
+    filename = 'test/data/example_sample.pickle'
     with open(filename, 'rb') as f:
         x = pickle.load(f)
 
 Print basic stats of the test data
+
+.. code:: ipython3
+
+    _,_ = kpp.kde_props(x, show=True)
+
+
+
+.. parsed-literal::
+
+    Using 'doane' metod to diplay 21 bins.
+    KDE estimation with Gaussian kernel width = 0.069
+    KDE peak = -1.615 +0.313, -0.156
+
+
+
+.. image:: output_13_1.png
+
+
+.. code:: ipython3
+
+    filename = 'test/data/N_tot_MC_smaple_All.pickle'
+    with open(filename, 'rb') as f:
+        x = pickle.load(f)
 
 .. code:: ipython3
 
@@ -155,7 +165,7 @@ Plot it
 
 
 
-.. image:: output_15_0.png
+.. image:: output_17_0.png
 
 
 Analyse it with fwhm_from_kde
@@ -173,6 +183,6 @@ Analyse it with fwhm_from_kde
 
 
 
-.. image:: output_17_1.png
+.. image:: output_19_1.png
 
 

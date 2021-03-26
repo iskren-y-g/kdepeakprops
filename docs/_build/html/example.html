@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title># KDE peak properties (kdepeakprops) &#8212; kdepeakprops  documentation</title>
+    <title>Examples &#8212; kdepeakprops  documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -16,7 +16,8 @@
     <script src="_static/language_data.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to kdepeakprops’s documentation!" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -24,8 +25,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to kdepeakprops’s documentation!"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">kdepeakprops  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""># KDE peak properties (kdepeakprops)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Examples</a></li> 
       </ul>
     </div>  
 
@@ -34,16 +41,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="kde-peak-properties-kdepeakprops">
-<h1># KDE peak properties (kdepeakprops)<a class="headerlink" href="#kde-peak-properties-kdepeakprops" title="Permalink to this headline">¶</a></h1>
-<p>Estimation of KDE peak properties: FWHM and its upper and lower bounds.</p>
-<p>It takes a 1D array of values and returns two arrays. One (1D array)
-with the KDE peak properties (value,FWHM, upp, low) and another (2D
-array) with the KDE samples.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="example">
-<h1>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
 <p>Some imports first:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -52,8 +51,9 @@ array) with the KDE samples.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="generate-some-test-data-and-plot-it">
-<h1>Generate some test data and plot it<a class="headerlink" href="#generate-some-test-data-and-plot-it" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="calculate-the-fwhm-of-the-kde-peak">
+<h1>Calculate the FWHM of the KDE peak<a class="headerlink" href="#calculate-the-fwhm-of-the-kde-peak" title="Permalink to this headline">¶</a></h1>
+<p>Generate some test data and plot it</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">),</span>
               <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">2120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">))</span>
@@ -68,13 +68,10 @@ array) with the KDE samples.</p>
 </pre></div>
 </div>
 <img alt="_images/output_3_1.png" src="_images/output_3_1.png" />
-</div>
 <hr class="docutils" />
-<div class="section" id="calculate-the-fwhm-of-the-kde-peak">
-<h1>Calculate the FWHM of the KDE peak<a class="headerlink" href="#calculate-the-fwhm-of-the-kde-peak" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="use-the-auto-plotting-feature">
 <h2>Use the auto plotting feature<a class="headerlink" href="#use-the-auto-plotting-feature" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_peak_prop</span><span class="p">,</span><span class="n">kde_xy</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_peak_prop</span><span class="p">,</span><span class="n">kde_xy</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nbins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KDE</span> <span class="n">estimation</span> <span class="k">with</span> <span class="n">Gaussian</span> <span class="n">kernel</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">15.919</span>
@@ -86,7 +83,7 @@ array) with the KDE samples.</p>
 <hr class="docutils" />
 <div class="section" id="plot-the-result-manually">
 <h2>Plot the result manually<a class="headerlink" href="#plot-the-result-manually" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_peak_prop</span><span class="p">,</span><span class="n">kde_xy</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_peak_prop</span><span class="p">,</span><span class="n">kde_xy</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nbins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">peak</span><span class="p">,</span> <span class="n">fwhm</span><span class="p">,</span> <span class="n">hwhm_upp</span><span class="p">,</span> <span class="n">hwhm_low</span> <span class="o">=</span> <span class="n">kde_peak_prop</span>
 
 <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;X = </span><span class="si">{:.3f}</span><span class="s1"> $^{{+</span><span class="si">{:.3f}</span><span class="s1">}}_{{-</span><span class="si">{:.3f}</span><span class="s1">}}$, FWHM=</span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -117,17 +114,30 @@ array) with the KDE samples.</p>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="use-some-other-test-data">
-<h1>Use some other test data<a class="headerlink" href="#use-some-other-test-data" title="Permalink to this headline">¶</a></h1>
-<p>Load test data</p>
+<div class="section" id="an-example-with-another-test-data">
+<h1>An example with another test data<a class="headerlink" href="#an-example-with-another-test-data" title="Permalink to this headline">¶</a></h1>
+<p>Load test data as numpy array</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
-<span class="c1">#filename = &#39;test/data/N_tot_MC_smaple_OMP_R.pickle&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;test/data/N_tot_MC_smaple_All.pickle&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;test/data/example_sample.pickle&#39;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Print basic stats of the test data</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="s1">&#39;doane&#39;</span> <span class="n">metod</span> <span class="n">to</span> <span class="n">diplay</span> <span class="mi">21</span> <span class="n">bins</span><span class="o">.</span>
+<span class="n">KDE</span> <span class="n">estimation</span> <span class="k">with</span> <span class="n">Gaussian</span> <span class="n">kernel</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.069</span>
+<span class="n">KDE</span> <span class="n">peak</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.615</span> <span class="o">+</span><span class="mf">0.313</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.156</span>
+</pre></div>
+</div>
+<img alt="_images/output_13_1.png" src="_images/output_13_1.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;test/data/N_tot_MC_smaple_All.pickle&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len = </span><span class="si">{:}</span><span class="s1">, min = </span><span class="si">{:.2f}</span><span class="s1">, max = </span><span class="si">{:.2f}</span><span class="se">\n</span><span class="s1"> 16%,50%,84% = </span><span class="si">{:}</span><span class="se">\n</span><span class="s1"> std_mean = </span><span class="si">{:}</span><span class="se">\</span>
 <span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">15.9</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mf">84.1</span><span class="p">]),</span>
          <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -144,7 +154,7 @@ array) with the KDE samples.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6000</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/output_15_0.png" src="_images/output_15_0.png" />
+<img alt="_images/output_17_0.png" src="_images/output_17_0.png" />
 <p>Analyse it with fwhm_from_kde</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6000</span><span class="p">],</span> <span class="n">nbins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -153,7 +163,7 @@ array) with the KDE samples.</p>
 <span class="n">KDE</span> <span class="n">peak</span> <span class="o">=</span> <span class="mf">816.313</span> <span class="o">+</span><span class="mf">611.168</span><span class="p">,</span> <span class="o">-</span><span class="mf">229.188</span>
 </pre></div>
 </div>
-<img alt="_images/output_17_1.png" src="_images/output_17_1.png" />
+<img alt="_images/output_19_1.png" src="_images/output_19_1.png" />
 </div>
 
 
@@ -165,17 +175,18 @@ array) with the KDE samples.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"># KDE peak properties (kdepeakprops)</a></li>
-<li><a class="reference internal" href="#example">Example:</a></li>
-<li><a class="reference internal" href="#generate-some-test-data-and-plot-it">Generate some test data and plot it</a></li>
+<li><a class="reference internal" href="#">Examples</a></li>
 <li><a class="reference internal" href="#calculate-the-fwhm-of-the-kde-peak">Calculate the FWHM of the KDE peak</a><ul>
 <li><a class="reference internal" href="#use-the-auto-plotting-feature">Use the auto plotting feature</a></li>
 <li><a class="reference internal" href="#plot-the-result-manually">Plot the result manually</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#use-some-other-test-data">Use some other test data</a></li>
+<li><a class="reference internal" href="#an-example-with-another-test-data">An example with another test data</a></li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to kdepeakprops’s documentation!</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -203,8 +214,14 @@ array) with the KDE samples.</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to kdepeakprops’s documentation!"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">kdepeakprops  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""># KDE peak properties (kdepeakprops)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Examples</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
