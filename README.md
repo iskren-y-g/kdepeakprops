@@ -3,7 +3,7 @@
 ## Brief description
 
 A module to get some basic properties of a KDE peak: peak location, FWHM and<br>
-its upper and lower bounds. The KDE is estimated with sklearn.neighbors.KernelDensity.
+its upper and lower bounds. The KDE is estimated with <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KernelDensity.html">sklearn.neighbors.KernelDensity</a>.
 
 <code>kdepeakprops.kde_props</code> takes a 1D array of values and returns an<br>
 array with the KDE peak properties (value, FWHM, upp, low) and another (2D array)
