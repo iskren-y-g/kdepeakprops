@@ -14,8 +14,10 @@ with the KDE samples.
 --------
 ## Install
 <code>
-cd /path/to/install/dir<br>
-git clone https://github.com/iskren-y-g/kdepeakprops.git</code><br>
+cd /path/to/install/dir
+
+git clone https://github.com/iskren-y-g/kdepeakprops.git</code>
+
 Add path or<br>
 <code>
 import sys<br>
