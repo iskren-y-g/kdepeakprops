@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Examples &#8212; kdepeakprops  documentation</title>
+    <title>Example: &#8212; kdepeakprops  documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -32,7 +32,7 @@
           <a href="index.html" title="Welcome to kdepeakprops’s documentation!"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">kdepeakprops  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Examples</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Example:</a></li> 
       </ul>
     </div>  
 
@@ -41,8 +41,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="example">
+<h1>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
 <p>Some imports first:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -51,24 +51,21 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="calculate-the-fwhm-of-the-kde-peak">
-<h1>Calculate the FWHM of the KDE peak<a class="headerlink" href="#calculate-the-fwhm-of-the-kde-peak" title="Permalink to this headline">¶</a></h1>
-<p>Generate some test data and plot it</p>
+<div class="section" id="generate-some-test-data-and-plot-it">
+<h1>Generate some test data and plot it<a class="headerlink" href="#generate-some-test-data-and-plot-it" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">),</span>
               <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">2120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
 <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">15000</span><span class="p">,)</span>
-</pre></div>
+<img alt="_images/output_3_0.png" src="_images/output_3_0.png" />
 </div>
-<img alt="_images/output_3_1.png" src="_images/output_3_1.png" />
 <hr class="docutils" />
+<div class="section" id="calculate-the-fwhm-of-the-kde-peak">
+<h1>Calculate the FWHM of the KDE peak<a class="headerlink" href="#calculate-the-fwhm-of-the-kde-peak" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="use-the-auto-plotting-feature">
 <h2>Use the auto plotting feature<a class="headerlink" href="#use-the-auto-plotting-feature" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_peak_prop</span><span class="p">,</span><span class="n">kde_xy</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nbins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -133,7 +130,9 @@
 </pre></div>
 </div>
 <img alt="_images/output_13_1.png" src="_images/output_13_1.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;test/data/N_tot_MC_smaple_All.pickle&#39;</span>
+<div class="section" id="different-example-data">
+<h2>Different example data<a class="headerlink" href="#different-example-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;test/data/example_data2.pickle&#39;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
@@ -154,7 +153,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6000</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/output_17_0.png" src="_images/output_17_0.png" />
+<img alt="_images/output_18_0.png" src="_images/output_18_0.png" />
 <p>Analyse it with fwhm_from_kde</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">kpp</span><span class="o">.</span><span class="n">kde_props</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6000</span><span class="p">],</span> <span class="n">nbins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -163,7 +162,8 @@
 <span class="n">KDE</span> <span class="n">peak</span> <span class="o">=</span> <span class="mf">816.313</span> <span class="o">+</span><span class="mf">611.168</span><span class="p">,</span> <span class="o">-</span><span class="mf">229.188</span>
 </pre></div>
 </div>
-<img alt="_images/output_19_1.png" src="_images/output_19_1.png" />
+<img alt="_images/output_20_1.png" src="_images/output_20_1.png" />
+</div>
 </div>
 
 
@@ -175,13 +175,17 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Examples</a></li>
+<li><a class="reference internal" href="#">Example:</a></li>
+<li><a class="reference internal" href="#generate-some-test-data-and-plot-it">Generate some test data and plot it</a></li>
 <li><a class="reference internal" href="#calculate-the-fwhm-of-the-kde-peak">Calculate the FWHM of the KDE peak</a><ul>
 <li><a class="reference internal" href="#use-the-auto-plotting-feature">Use the auto plotting feature</a></li>
 <li><a class="reference internal" href="#plot-the-result-manually">Plot the result manually</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#an-example-with-another-test-data">An example with another test data</a></li>
+<li><a class="reference internal" href="#an-example-with-another-test-data">An example with another test data</a><ul>
+<li><a class="reference internal" href="#different-example-data">Different example data</a></li>
+</ul>
+</li>
 </ul>
 
   <h4>Previous topic</h4>
@@ -221,7 +225,7 @@
           <a href="index.html" title="Welcome to kdepeakprops’s documentation!"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">kdepeakprops  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Examples</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Example:</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

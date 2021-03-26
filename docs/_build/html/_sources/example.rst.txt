@@ -1,5 +1,5 @@
-Examples
-------------------------------------
+Example:
+--------
 
 Some imports first:
 
@@ -10,33 +10,27 @@ Some imports first:
     
     import kdepeakprops as kpp
 
-Calculate the FWHM of the KDE peak
-----------------------------------
-
 Generate some test data and plot it
+-----------------------------------
 
 .. code:: ipython3
 
     np.random.seed(42)
     x = np.append(np.random.normal(1900, 100, size=10000),
                   np.random.normal(2120, 100, size=5000))
-    print(x.shape)
     
     fig,ax = plt.subplots()
-    
     _ = ax.hist(x, bins=60)
 
 
-.. parsed-literal::
 
-    (15000,)
-
-
-
-.. image:: output_3_1.png
+.. image:: output_3_0.png
 
 
 --------------
+
+Calculate the FWHM of the KDE peak
+----------------------------------
 
 Use the auto plotting feature
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -135,9 +129,12 @@ Print basic stats of the test data
 .. image:: output_13_1.png
 
 
+Different example data
+~~~~~~~~~~~~~~~~~~~~~~
+
 .. code:: ipython3
 
-    filename = 'test/data/N_tot_MC_smaple_All.pickle'
+    filename = 'test/data/example_data2.pickle'
     with open(filename, 'rb') as f:
         x = pickle.load(f)
 
@@ -165,7 +162,7 @@ Plot it
 
 
 
-.. image:: output_17_0.png
+.. image:: output_18_0.png
 
 
 Analyse it with fwhm_from_kde
@@ -183,6 +180,6 @@ Analyse it with fwhm_from_kde
 
 
 
-.. image:: output_19_1.png
+.. image:: output_20_1.png
 
 

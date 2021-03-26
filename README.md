@@ -10,7 +10,6 @@ It takes a 1D array of values and returns two arrays. One (1D array) with the KD
 ![png](docs/output_5_1.png)
 
 --------
-
 ## Example:
 
 Some imports first:
@@ -23,7 +22,7 @@ from matplotlib import pyplot as plt
 import kdepeakprops as kpp
 ```
 
-Generate some test data and plot it
+## Generate some test data and plot it
 
 
 ```python
@@ -34,8 +33,10 @@ x = np.append(np.random.normal(1900, 100, size=10000),
 fig,ax = plt.subplots()
 _ = ax.hist(x, bins=60)
 ```
+
+
     
-![png](docs/output_3_1.png)
+![png](output_3_0.png)
     
 
 
@@ -46,7 +47,7 @@ _ = ax.hist(x, bins=60)
 
 
 ```python
-kde_peak_prop,kde_xy = kpp.kde_props(x, show=True)
+kde_peak_prop,kde_xy = kpp.kde_props(x, nbins=60, show=True)
 ```
 
     KDE estimation with Gaussian kernel width = 15.919
@@ -55,7 +56,7 @@ kde_peak_prop,kde_xy = kpp.kde_props(x, show=True)
 
 
     
-![png](docs/output_5_1.png)
+![png](output_5_1.png)
     
 
 
@@ -64,7 +65,7 @@ kde_peak_prop,kde_xy = kpp.kde_props(x, show=True)
 
 
 ```python
-kde_peak_prop,kde_xy = kpp.kde_props(x, show=False)
+kde_peak_prop,kde_xy = kpp.kde_props(x, nbins=60, show=False)
 peak, fwhm, hwhm_upp, hwhm_low = kde_peak_prop
 
 label = r'X = {:.3f} $^{{+{:.3f}}}_{{-{:.3f}}}$, FWHM={:.3f}'.format(
@@ -98,26 +99,51 @@ ax.set_ylabel('N')
 
 
     
-![png](docs/output_7_2.png)
+![png](output_7_2.png)
     
 
 
 ---------
 
-## Use some other test data
+## An example with another test data
 
-Load test data
+Load test data as numpy array
 
 
 ```python
 import pickle
-#filename = 'test/data/N_tot_MC_smaple_OMP_R.pickle'
-filename = 'test/data/N_tot_MC_smaple_All.pickle'
+filename = 'test/data/example_sample.pickle'
 with open(filename, 'rb') as f:
     x = pickle.load(f)
 ```
 
 Print basic stats of the test data
+
+
+```python
+_,_ = kpp.kde_props(x, show=True)
+
+```
+
+    Using 'doane' metod to diplay 21 bins.
+    KDE estimation with Gaussian kernel width = 0.069
+    KDE peak = -1.615 +0.313, -0.156
+
+
+
+    
+![png](output_13_1.png)
+    
+
+
+### Different example data
+
+
+```python
+filename = 'test/data/example_data2.pickle'
+with open(filename, 'rb') as f:
+    x = pickle.load(f)
+```
 
 
 ```python
@@ -142,7 +168,7 @@ _ = plt.hist(x[x<6000],bins=100)
 
 
     
-![png](docs/output_15_0.png)
+![png](output_18_0.png)
     
 
 
@@ -160,7 +186,7 @@ _,_ = kpp.kde_props(x[x<6000], nbins=100, show=True)
 
 
     
-![png](docs/output_17_1.png)
+![png](output_20_1.png)
     
 
 

@@ -6,7 +6,7 @@
 Welcome to kdepeakprops's documentation!
 ==============================================================
 
-Basic info
+Brief description
 ===================
 Estimation of KDE peak properties: FWHM and its upper and lower bounds.
 
@@ -16,10 +16,8 @@ array) with the KDE samples.
 
 .. image:: output_5_1.png
 
-Examples
+Contents
 ===================
-
-:doc: Examples <example.rst>
 
 .. toctree::
    :maxdepth: 4
