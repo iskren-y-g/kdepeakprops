@@ -20,7 +20,8 @@ git clone https://github.com/iskren-y-g/kdepeakprops.git</code>
 
 Add path or<br>
 <code>
-import sys<br>
+import sys
+
 sys.path.insert(0,'/path/to/install/dir')</code>
 
 --------
