@@ -14,12 +14,12 @@ with the KDE samples.
 --------
 ## Install
 <code>
-cd /path/to/install/dir
+cd /path/to/install/dir<br>
 git clone https://github.com/iskren-y-g/kdepeakprops.git</code><br>
 Add path or<br>
 <code>
-> import sys
-> sys.path.insert(0,'/path/to/install/dir')</code>
+import sys<br>
+sys.path.insert(0,'/path/to/install/dir')</code>
 
 --------
 ## Example:
