@@ -13,15 +13,16 @@ with the KDE samples.
 
 --------
 ## Install
-<code>
+```python
 cd /path/to/install/dir
 git clone https://github.com/iskren-y-g/kdepeakprops.git
-</code>
+```
 
 Add path or<br>
-<code>
+```python
 import sys
-sys.path.insert(0,'/path/to/install/dir')</code>
+sys.path.insert(0,'/path/to/install/dir')
+```
 
 --------
 ## Example:
