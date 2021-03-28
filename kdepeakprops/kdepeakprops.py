@@ -2,6 +2,11 @@
 # coding: utf-8
 # Licensed under a 3-clause BSD style license - see LICENSE.rst
 
+"""
+A module to get some basic properties of a KDE peak.
+=================================================
+"""
+
 __author__ = "Iskren Y. Georgiev"
 
 # Importing modules
