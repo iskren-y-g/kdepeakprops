@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# Licensed under a 3-clause BSD style license - see LICENSE.rst
+# Licensed under a 3-clause BSD style license - see LICENSE
 
 """
 A module to get some basic properties of a KDE peak.
